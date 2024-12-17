@@ -42,7 +42,7 @@ public class ReslutAnimationViewContoller: UIViewController, SpecialAnimationDel
                 containerView.backgroundColor = .white
                 containerView.addSubview(secureView)
                 secureView.addSubview(resultView)
-                self.view.addSubview(secureView)
+                // self.view.addSubview(secureView)
                 secureView.snp.makeConstraints({$0.edges.equalToSuperview()})
                 self.view.addSubview(containerView)
             
