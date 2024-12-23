@@ -24,10 +24,12 @@ final class SpinnerView: UIView, InstanceFromNibProtocol {
     @IBOutlet weak var iconHeight: NSLayoutConstraint!
     private var isPaid: Bool = false
     
+    
     var greenDoneComplition: (() -> Void)?
     var tariffButtonTapped: (() -> Void)?
     var progressSwitchTapped: ((Bool) -> Void)?
     var goEvent: ((EventsName) -> Void)?
+    var openSheetVCTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -167,7 +169,7 @@ final class SpinnerView: UIView, InstanceFromNibProtocol {
                 url = URL(string: "App-Prefs:Safari&path=CLEAR_HISTORY_AND_DATA")!
                 
             }
-                    
+            
             guard UIApplication.shared.canOpenURL(url) else {
                 self.goEvent?(.specialOffer5Error)
                 return
@@ -199,10 +201,15 @@ final class SpinnerView: UIView, InstanceFromNibProtocol {
             Storage.featuresStates[1] = sender.isOn
             progressSwitchTapped?(sender.isOn)
             if sender.isOn {
-                showProgressAction()
+                if ProgressHUD.shared.isSheet{
+                    openSheetVCTapped?()
+                } else {
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.showSuccessAction()
+                    showProgressAction()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.showSuccessAction()
+                    }
                 }
             }
         } else {

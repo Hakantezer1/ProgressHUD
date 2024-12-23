@@ -139,6 +139,14 @@ public class ReslutAnimationViewContoller: UIViewController, SpecialAnimationDel
             self.navigationController?.present(vc, animated: true)
         }
         
+        resultView.openSheetVCTapped = { [weak self] in
+            guard let self else { return }
+            
+            let vc = SheetViewController()
+            vc.modalPresentationStyle = .overCurrentContext
+            self.navigationController?.present(vc, animated: true)
+        }
+        
         resultView.sendEvent = { [weak self] event in
             self?.delegate?.eventsFunc(event: event)
         }
