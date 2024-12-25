@@ -58,6 +58,10 @@ class SheetView: UIView, InstanceFromNibProtocol {
 
     @IBOutlet private var infoIcons: [UIImageView]!
     
+    @IBOutlet weak var infoLabel1: UILabel!
+    @IBOutlet weak var infoLabel2: UILabel!
+    @IBOutlet weak var infoLabel3: UILabel!
+    
     @IBOutlet weak private var progressView: UIProgressView!
     
     @IBOutlet weak private var goBTN: UIButton!{
@@ -146,6 +150,10 @@ class SheetView: UIView, InstanceFromNibProtocol {
                     self.goBTN.isHidden = true
                     let imURL0 = URL(string: model.ic_3)!
                     let imURL = URL(string: model.ic_4)!
+                    
+                    self.infoLabel1.text = model.inf_1
+                    self.infoLabel2.text = model.inf_2
+                    self.infoLabel3.text = model.inf_3
 
                     self.infoIcons0.forEach({
                         $0.kf.setImage(with: imURL0, options: [.processor(SVGImgProcessor())])

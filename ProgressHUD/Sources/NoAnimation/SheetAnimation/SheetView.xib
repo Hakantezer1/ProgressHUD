@@ -270,6 +270,9 @@
                 <outlet property="iconActivity" destination="mls-8I-Vi6" id="3Xc-t2-oPu"/>
                 <outlet property="iconImage" destination="seJ-cm-7Q7" id="Fip-5H-hRK"/>
                 <outlet property="iconcontainer" destination="fEa-77-0vs" id="BzT-pc-Y6Y"/>
+                <outlet property="infoLabel1" destination="VDT-54-XBu" id="6rF-t5-JfM"/>
+                <outlet property="infoLabel2" destination="j2R-e8-XWe" id="xqS-9A-Bg4"/>
+                <outlet property="infoLabel3" destination="oFV-KX-ZQA" id="MFa-sc-5Qi"/>
                 <outlet property="lineLeadingConctraint" destination="KgS-zH-lEX" id="Z2l-rV-QUI"/>
                 <outlet property="lineTrailingConstraint" destination="Mpo-lN-cRl" id="Q8s-es-kVE"/>
                 <outlet property="progressView" destination="ERQ-Mp-gSU" id="H2K-1V-PB9"/>
