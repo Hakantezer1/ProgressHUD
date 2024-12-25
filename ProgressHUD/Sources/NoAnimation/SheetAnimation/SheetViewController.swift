@@ -30,7 +30,6 @@ class SheetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.isOpaque = false
-        view.backgroundColor = .clear
         sheetAlert.alpha = 0
         
         UIView.animate(withDuration: 0.3) {
