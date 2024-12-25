@@ -144,7 +144,7 @@ public class ReslutAnimationViewContoller: UIViewController, SpecialAnimationDel
             
             let vc = SheetViewController(model?.sheet)
             vc.modalPresentationStyle = .overCurrentContext
-            self.navigationController?.present(vc, animated: true)
+            self.navigationController?.present(vc, animated: false)
         }
         
         resultView.sendEvent = { [weak self] event in
