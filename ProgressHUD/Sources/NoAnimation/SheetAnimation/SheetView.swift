@@ -18,6 +18,10 @@ private enum SheetState {
 class SheetView: UIView, InstanceFromNibProtocol {
     typealias InstanceFromNibType = SheetView
     
+    private let isSmallDevice = UIScreen.main.nativeBounds.height <= 1334
+    private let isVerySmallDevice = UIScreen.main.nativeBounds.height <= 1136
+    private let isIpad = UIDevice.current.userInterfaceIdiom == .pad
+    
     @IBOutlet weak private var containerMain: UIView!{
         didSet {
             containerMain.layer.cornerRadius = 15
@@ -66,6 +70,16 @@ class SheetView: UIView, InstanceFromNibProtocol {
     private var progress: Float = 0.0
     var dismissAction: (() -> Void)?
     
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomStackTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomStackTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomStackLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lineLeadingConctraint: NSLayoutConstraint!
+    @IBOutlet weak var lineTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -227,10 +241,26 @@ class SheetView: UIView, InstanceFromNibProtocol {
     }
     
     private func change(_ state: SheetState) {
+        updateConst()
         self.state = state
         
     }
     
+    private func updateConst() {
+        buttonBottomConstraint.constant = isSmallDevice ? (isVerySmallDevice ? 10 : 30) : 70
+        stackTopConstraint.constant = isIpad ? 80 : (isSmallDevice ? (isVerySmallDevice ? 10 : 40) : 40)
+        bottomStackTopConstraint.constant = isSmallDevice ? (isVerySmallDevice ? 10 : 20) : 30
+        
+        if isIpad {
+            buttonLeadingConstraint.constant = UIScreen.main.bounds.width * 0.283
+            buttonTrailingConstraint.constant = UIScreen.main.bounds.width * 0.283
+            lineLeadingConctraint.constant = UIScreen.main.bounds.width * 0.256
+            lineTrailingConstraint.constant = UIScreen.main.bounds.width * 0.256
+            bottomStackTrailingConstraint.constant = UIScreen.main.bounds.width * 0.32
+            bottomStackLeadingConstraint.constant = UIScreen.main.bounds.width * 0.32
+            containerHeightConstraint.constant = -UIScreen.main.bounds.height * 0.1
+        }
+    }
     
     @IBAction func goBTNAction(_ sender: Any) {
         state == .open ? change(.active): dismissAction?()

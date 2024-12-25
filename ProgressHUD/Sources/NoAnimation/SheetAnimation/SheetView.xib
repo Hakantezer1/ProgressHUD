@@ -258,12 +258,22 @@
                 <constraint firstAttribute="bottom" secondItem="2oD-kb-zk5" secondAttribute="bottom" id="qNn-7O-2yh"/>
             </constraints>
             <connections>
+                <outlet property="bottomStackLeadingConstraint" destination="vlO-JY-dCe" id="y2l-gS-GAh"/>
+                <outlet property="bottomStackTopConstraint" destination="bk1-dw-oJ6" id="gCu-MC-wm1"/>
+                <outlet property="bottomStackTrailingConstraint" destination="czh-ih-SZk" id="VcX-tI-aIG"/>
+                <outlet property="buttonBottomConstraint" destination="bel-We-BK7" id="MOc-bK-p82"/>
+                <outlet property="buttonLeadingConstraint" destination="1YP-Xk-bGh" id="pTK-79-nQM"/>
+                <outlet property="buttonTrailingConstraint" destination="jZN-u5-XIP" id="YMD-Cp-jCM"/>
+                <outlet property="containerHeightConstraint" destination="9Df-aq-QxS" id="Jos-cU-TNG"/>
                 <outlet property="containerMain" destination="2oD-kb-zk5" id="xjV-uP-C6E"/>
                 <outlet property="goBTN" destination="wx2-uU-11X" id="hyZ-H1-GRC"/>
                 <outlet property="iconActivity" destination="mls-8I-Vi6" id="3Xc-t2-oPu"/>
                 <outlet property="iconImage" destination="seJ-cm-7Q7" id="Fip-5H-hRK"/>
                 <outlet property="iconcontainer" destination="fEa-77-0vs" id="BzT-pc-Y6Y"/>
+                <outlet property="lineLeadingConctraint" destination="KgS-zH-lEX" id="Z2l-rV-QUI"/>
+                <outlet property="lineTrailingConstraint" destination="Mpo-lN-cRl" id="Q8s-es-kVE"/>
                 <outlet property="progressView" destination="ERQ-Mp-gSU" id="H2K-1V-PB9"/>
+                <outlet property="stackTopConstraint" destination="cls-1L-ooc" id="UXZ-A3-znZ"/>
                 <outlet property="status" destination="bDa-uQ-shQ" id="phc-yr-JzH"/>
                 <outlet property="statusContainer" destination="bB5-OU-qaC" id="sFs-TY-eio"/>
                 <outlet property="subtitle" destination="Cxs-Kq-01r" id="sU0-kO-FUg"/>
